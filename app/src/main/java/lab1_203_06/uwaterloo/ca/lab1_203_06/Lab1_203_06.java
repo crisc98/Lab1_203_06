@@ -106,14 +106,10 @@ public class Lab1_203_06 extends AppCompatActivity {
     }
 
     private void clearAllRecords(){
-        MySensorEventListener tmpLight = (MySensorEventListener) light;
-        MySensorEventListener tmpAccel = (MySensorEventListener) accel;
-        MySensorEventListener tmpRot = (MySensorEventListener) rot;
-        MySensorEventListener tmpMag = (MySensorEventListener) mag;
-        clearRecords(tmpLight);
-        clearRecords(tmpAccel);
-        clearRecords(tmpRot);
-        clearRecords(tmpMag);
+        clearRecords((MySensorEventListener)light);
+        clearRecords((MySensorEventListener)accel);
+        clearRecords((MySensorEventListener)rot);
+        clearRecords((MySensorEventListener)mag);
 
     }
     private void clearRecords(MySensorEventListener senLis){
@@ -134,7 +130,8 @@ public class Lab1_203_06 extends AppCompatActivity {
                     } else {
                         System.out.println("File already exists.");
                     }
-                    file = new File("/storage/extSdCard/Android/data/lab1_203_06.uwaterloo.ca.lab1_203_06/files/Lab1_203_06", "accelReadings.csv");
+                    //THIS LINE IS ONLY NECESSARY WHEN USING CERTAIN PHONES (i.e NOTE II)
+                    //file = new File("/storage/extSdCard/Android/data/lab1_203_06.uwaterloo.ca.lab1_203_06/files/Lab1_203_06", "accelReadings.csv");
                     FileOutputStream f = new FileOutputStream(file);
                     PrintWriter writer = new PrintWriter(f);
                     int i = 0;
